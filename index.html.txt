@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💕</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff69b4, #ffc0cb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .box {
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      max-width: 360px;
+    }
+
+    h1 {
+      color: #ff1493;
+    }
+
+    img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 10px;
+      border: 4px solid #ff69b4;
+    }
+
+    button {
+      padding: 12px 28px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: #ff1493;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #ffd1dc;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Music (hidden, plays on YES click) -->
+  <audio id="loveSong" loop>
+    <source src="love.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="box">
+    <h1>Hey My Love ❤️</h1>
+
+    <img src="her.jpg" alt="Her Picture">
+    <img src="us.jpg" alt="Us Together">
+
+    <p>You make my world softer, sweeter, and brighter 🥺💖</p>
+    <p>Will you be my Valentine? 🌹</p>
+
+    <button id="yesBtn" onclick="yesClick()">Yes 😍</button>
+    <button id="noBtn" onmouseover="moveButton()">No 🙃</button>
+  </div>
+
+  <script>
+    function yesClick() {
+      // play music
+      const song = document.getElementById("loveSong");
+      song.play();
+
+      // change screen
+      document.body.innerHTML = `
+        <div style="
+          background: linear-gradient(135deg, #ff69b4, #ffc0cb);
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          text-align:center;
+          font-family: Arial;
+        ">
+          <div>
+            <h1 style="color:#ff1493;">YAYYYY 💕😭</h1>
+            <p>You said YES and just stole my heart all over again ❤️</p>
+            <p>I can’t wait to spend Valentine’s Day loving you 🥰</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function moveButton() {
+      const button = document.getElementById("noBtn");
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      button.style.left = x + "px";
+      button.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
